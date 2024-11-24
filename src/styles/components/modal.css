@@ -1,0 +1,38 @@
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal:popover-open {
+  opacity: 1;
+  translate: -50% -50%;
+
+  @starting-style {
+    & {
+      opacity: 0;
+      translate: -50% -100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    & {
+      transition: opacity 0.5s, translate 0.5s, display 0.5s allow-discrete;
+    }
+  }
+}
+
+.modal {
+  width: 300px;
+  padding: 10px;
+  height: fit-content;
+  opacity: 0;
+  border: none;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.1);
+  background: #fbfbfb;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -100%;
+  transition: opacity 0.5s, translate 0.5s, display 0.5s allow-discrete;
+}

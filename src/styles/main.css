@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --accent: #0d6efd;
+  --accent-light: #428eff;
+  --accent-dark: #0569ff;
+  --black: #212529;
+  --white: #ffffff;
+  --gray-light: #f3f3f3;
+  --gray: #dddddd;
+  --gray-dark: #bbbbbb;
+  --gray-darkest: #878787;
+
+  --font-family: 'Roboto', serif;
+
+  --box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.1);
+  --transition: all 0.15s ease-in;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  background: var(--gray);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+button,
+textarea {
+  font-family: var(--font-family);
+}
+
+main {
+  display: flex;
+  align-items: start;
+  gap: 50px;
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  background: var(--gray-light);
+  box-shadow: var(--box-shadow);
+}
+
+.textfield {
+  padding: 7px 14px;
+  border: 1px solid var(--gray-dark);
+  border-radius: 5px;
+  color: var(--black);
+  font-size: 14px;
+  outline: none;
+  transition: var(--transition);
+
+  &::placeholder {
+    color: var(--gray-darkest);
+  }
+
+  &:focus {
+    border-color: var(--gray-darkest);
+  }
+}
+
+.button {
+  padding: 7px 14px;
+  font-size: 14px;
+  color: var(--white);
+  background: var(--accent-light);
+  border: none;
+  border-radius: 5px;
+  transition: var(--transition);
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      background: var(--accent-dark);
+    }
+  }
+}

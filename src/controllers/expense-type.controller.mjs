@@ -1,15 +1,11 @@
-import { Database } from "../database.mjs";
-import { ExpenseType } from "../entities/expense-type.mjs";
+import { Database } from '../database.mjs';
+import { ExpenseType } from '../entities/expense-type.mjs';
 
 export class ExpenseTypeController {
-  static #datakey = "ExpenseType";
+  static #datakey = 'ExpenseType';
 
   static create(name) {
-    const isExpenseTypeExist = Database.readDataByField(
-      this.#datakey,
-      "name",
-      name,
-    );
+    const isExpenseTypeExist = Database.readDataByField(this.#datakey, 'name', name);
 
     if (isExpenseTypeExist) return;
 
@@ -33,7 +29,7 @@ export class ExpenseTypeController {
   }
 
   static getByName(name) {
-    const expenseType = Database.readDataByField(this.#datakey, "name", name);
+    const expenseType = Database.readDataByField(this.#datakey, 'name', name);
 
     return expenseType;
   }

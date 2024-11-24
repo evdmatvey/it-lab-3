@@ -1,0 +1,17 @@
+@import url('./components/sidebar.css');
+@import url('./components/modal.css');
+@import url('./components/currency-form.css');
+@import url('./components/settings-item.css');
+
+.settings__title {
+  margin-bottom: 30px;
+  color: var(--accent);
+}
+
+.settings__wrapper {
+  width: 650px;
+  /* margin: 0 auto; */
+  display: grid;
+  grid-template-columns: 300px 300px;
+  gap: 100px 50px;
+}

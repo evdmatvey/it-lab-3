@@ -1,15 +1,11 @@
-import { Database } from "../database.mjs";
-import { IncomeType } from "../entities/income-type.mjs";
+import { Database } from '../database.mjs';
+import { IncomeType } from '../entities/income-type.mjs';
 
 export class IncomeTypeController {
-  static #datakey = "IncomeType";
+  static #datakey = 'IncomeType';
 
   static create(name) {
-    const isIncomeTypeExist = Database.readDataByField(
-      this.#datakey,
-      "name",
-      name,
-    );
+    const isIncomeTypeExist = Database.readDataByField(this.#datakey, 'name', name);
 
     if (isIncomeTypeExist) return;
 
@@ -33,7 +29,7 @@ export class IncomeTypeController {
   }
 
   static getByName(name) {
-    const incomeType = Database.readDataByField(this.#datakey, "name", name);
+    const incomeType = Database.readDataByField(this.#datakey, 'name', name);
 
     return incomeType;
   }
@@ -43,14 +39,15 @@ export class IncomeTypeController {
 
     if (!isIncomeTypeExist) return;
 
-    Database.setDataById(this.#datakey, data);
+    const incomeType = new IncomeType(data.name, data.id);
+
+    Database.setDataById(this.#datakey, incomeType);
   }
 
   static delete(id) {
-    const isIncomeTypeExist = Database.readDataById(this.#datakey, id);
-
+    const isIncomeTypeExist = Database.readDataById(this.#datakey, +id);
     if (!isIncomeTypeExist) return;
 
-    Database.deleteDataById(this.#datakey, id);
+    Database.deleteDataById(this.#datakey, +id);
   }
 }

@@ -4,9 +4,8 @@ export class Database {
   }
 
   static readDataById(key, id) {
-    return (JSON.parse(window.localStorage.getItem(key)).filter(
-      (item) => item.id === id,
-    ) ?? [])[0];
+    return (JSON.parse(window.localStorage.getItem(key)).filter((item) => +item.id === +id) ??
+      [])[0];
   }
 
   static readDataByField(key, field, value) {
@@ -27,15 +26,12 @@ export class Database {
   }
 
   static setDataById(key, value) {
-    const data = [
-      ...this.readData(key).filter((item) => item.id !== value.id),
-      value,
-    ];
+    const data = [...this.readData(key).filter((item) => +item.id !== +value.id), value];
     window.localStorage.setItem(key, JSON.stringify(data));
   }
 
   static deleteDataById(key, id) {
-    const data = this.readData(key).filter((item) => item.id !== id);
+    const data = this.readData(key).filter((item) => +item.id !== +id);
     window.localStorage.setItem(key, JSON.stringify(data));
   }
 }

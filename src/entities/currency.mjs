@@ -1,5 +1,3 @@
-import { Rate } from "./rate.mjs";
-
 export class Currency {
   constructor(name, rates = [], id = Date.now()) {
     this.id = id;
@@ -7,10 +5,11 @@ export class Currency {
     this.rates = rates;
   }
 
-  addRate(date, buy, sell) {
+  addRate(date, rate) {
     const isRateExist = this.rates.filter((r) => r.date === date)[0];
 
-    if (!isRateExist) this.rates.push(new Rate(date, buy, sell));
+    if (!isRateExist) this.rates.push({ date, rate });
+    else this.rates.at(-1).rate = rate;
   }
 
   getRateByDate(date) {

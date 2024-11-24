@@ -1,0 +1,43 @@
+.currency__form-title {
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.currency__form-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.currency__form-close {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  & svg path {
+    transition: var(--transition);
+    fill: var(--gray-dark);
+  }
+
+  @media (hover: hover) {
+    &:hover svg path {
+      fill: var(--gray-darkest);
+    }
+  }
+}
