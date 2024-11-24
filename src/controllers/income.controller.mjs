@@ -32,7 +32,7 @@ export class IncomeController {
     if (!isIncomeExist) return;
     const income = new Income(data);
 
-    Database.setDataById(this.#datakey, data);
+    Database.setDataById(this.#datakey, income);
   }
 
   static delete(id) {

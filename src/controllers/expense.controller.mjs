@@ -1,11 +1,13 @@
-import { Database } from "../database.mjs";
-import { Expense } from "../entities/expense.mjs";
+import { Database } from '../database.mjs';
+import { Expense } from '../entities/expense.mjs';
+import { formatDate } from '../utils/format-date.mjs';
 
 export class ExpenseController {
-  static #datakey = "Expense";
+  static #datakey = 'Expense';
 
-  static create(value, currency, type, date) {
-    const expense = new Expense(value, currency, type, date);
+  static create({ value, currency, type, name }) {
+    const date = formatDate(Date.now());
+    const expense = new Expense({ value, currency, type, name, date });
 
     Database.addData(this.#datakey, expense);
 
@@ -15,29 +17,22 @@ export class ExpenseController {
   static get() {
     const expenses = Database.readData(this.#datakey);
 
-    return expenses.map(
-      (e) => new Expense(e.value, e.currency, e.type, e.date, e.id),
-    );
+    return expenses.map((e) => new Expense(e));
   }
 
   static getById(id) {
     const expense = Database.readDataById(this.#datakey, id);
 
-    return new Expense(
-      expense.value,
-      expense.currency,
-      expense.type,
-      expense.date,
-      expense.id,
-    );
+    return new Expense(expense);
   }
 
   static update(data) {
     const isExpenseExist = Database.readDataById(this.#datakey, data.id);
 
     if (!isExpenseExist) return;
+    const expense = new Expense(data);
 
-    Database.setDataById(this.#datakey, data);
+    Database.setDataById(this.#datakey, expense);
   }
 
   static delete(id) {

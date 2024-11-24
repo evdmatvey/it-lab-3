@@ -4,24 +4,24 @@
 @import url('./components/modal.css');
 @import url('./components/transaction-form.css');
 
-.incomes__header {
+.expenses__header {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.incomes__title {
+.expenses__title {
   color: var(--accent);
 }
 
-.incomes__controls {
+.expenses__controls {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.incomes__controls-export {
+.expenses__controls-export {
   height: 32px;
   padding: 5px 10px;
   background: transparent;
@@ -38,7 +38,7 @@
   }
 }
 
-.incomes__controls-add {
+.expenses__controls-add {
   padding: 3px 7px;
   border-radius: 15px;
   border: none;
@@ -53,6 +53,6 @@
   }
 }
 
-.incomes__controls-add svg path {
+.expenses__controls-add svg path {
   fill: var(--white);
 }
