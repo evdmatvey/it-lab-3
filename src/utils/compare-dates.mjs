@@ -1,6 +1,6 @@
 export const compareDates = (a, b) => {
-  const dateA = a.split(".").map(Number);
-  const dateB = b.split(".").map(Number);
+  const dateA = a.split('.').map(Number);
+  const dateB = b.split('.').map(Number);
 
   if (dateA[2] !== dateB[2]) {
     return dateA[2] - dateB[2];

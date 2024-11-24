@@ -1,0 +1,92 @@
+.transactions__table {
+  padding: 20px 0;
+  border-radius: 16px;
+  border: 1px solid var(--gray);
+}
+
+.transactions__table-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transactions__table-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.transactions__item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.transactions-item__info-title {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.transactions-item__info-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.transactions-item__info-controls button {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  & svg path {
+    transition: var(--transition);
+    fill: var(--gray-dark);
+  }
+
+  @media (hover: hover) {
+    &:hover svg path {
+      fill: var(--gray-darkest);
+    }
+  }
+}
+
+.transactions-item__info-title svg {
+  width: 18px;
+  height: 18px;
+}
+
+.transactions-item__info-category {
+  color: var(--gray-darkest);
+}
+
+.transactions__item-price {
+  color: var(--gray-darkest);
+}
+
+.transactions__table-total {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transactions__total-price {
+  font-weight: 600;
+  font-size: 18px;
+}

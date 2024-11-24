@@ -12,7 +12,6 @@ export class UpdateCurrencyComponent {
 
   init() {
     const currency = CurrencyController.getById(this.currencyId);
-    console.log(this.currencyId, this.element);
     const name = this.element.querySelector('input[name="currency"]');
     const rate = this.element.querySelector('input[name="rate"]');
 

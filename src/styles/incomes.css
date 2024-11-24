@@ -1,0 +1,62 @@
+@import url('./components/sidebar.css');
+@import url('./components/dropdown.css');
+@import url('./components/transactions.css');
+@import url('./components/modal.css');
+@import url('./components/transaction-form.css');
+
+.incomes__header {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.incomes__title {
+  color: var(--accent);
+}
+
+.incomes__controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.incomes__controls-export {
+  height: 32px;
+  padding: 5px 10px;
+  background: transparent;
+  color: var(--gray-dark);
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: var(--transition);
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--gray-darkest);
+    }
+  }
+}
+
+.incomes__controls-add {
+  padding: 3px 7px;
+  border-radius: 15px;
+  border: none;
+  background: var(--accent-light);
+  cursor: pointer;
+  transition: var(--transition);
+
+  @media (hover: hover) {
+    &:hover {
+      background: var(--accent-dark);
+    }
+  }
+}
+
+.incomes__controls-add svg path {
+  fill: var(--white);
+}
+
+/* .create__income-form {
+  margin-bottom: 100px;
+} */
