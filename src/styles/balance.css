@@ -1,0 +1,8 @@
+@import url('./components/sidebar.css');
+@import url('./components/dropdown.css');
+
+.balance__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,5 +1,6 @@
 import { Database } from '../database.mjs';
 import { compareDates } from '../utils/compare-dates.mjs';
+import { sumMoneys } from '../utils/sum-moneys.mjs';
 
 export class Budget {
   static #currencies = Database.readData('Currency');
@@ -33,8 +34,12 @@ export class Budget {
 
   static balance(startDate, endDate, incomeType = '', expenseType = '') {
     const { incomes, expenses } = this.filter(startDate, endDate, incomeType, expenseType);
-    const income = incomes.reduce((acc, i) => acc + i.value, 0);
-    const expense = expenses.reduce((acc, e) => acc + e.value, 0) * -1;
+    const income = sumMoneys(
+      incomes.map((income) => ({ currency: income.currency, value: income.value })),
+    );
+    const expense =
+      -1 *
+      sumMoneys(expenses.map((expense) => ({ currency: expense.currency, value: expense.value })));
 
     return income + expense;
   }
